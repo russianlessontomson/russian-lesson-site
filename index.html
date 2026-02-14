@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>トムのロシア語教室 | オンラインロシア語レッスン</title>
+  <meta name="description" content="トムのロシア語教室 - 初心者から上級者まで、楽しく学べるオンラインロシア語レッスン。体験レッスン受付中！">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      color: #2d2d2d;
+      line-height: 1.9;
+      background: #ffffff;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== Utility ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: #1B2A4A;
+      letter-spacing: -0.5px;
+    }
+    .section-title span { color: #1B2A4A; }
+    .section-subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 60px;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-block;
+      padding: 16px 44px;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: 0.3px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.3s ease,
+                  background 0.3s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+    .btn:active { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, #C9A84C 0%, #b8953e 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 8px 28px rgba(201,168,76,0.45);
+      background: linear-gradient(135deg, #d4b55a 0%, #C9A84C 100%);
+    }
+    .btn-outline {
+      background: rgba(255,255,255,0.8);
+      color: #C9A84C;
+      border: 2px solid #C9A84C;
+      backdrop-filter: blur(4px);
+    }
+    .btn-outline:hover {
+      background: #C9A84C;
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(201,168,76,0.3);
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(27,42,74,0.06);
+      transition: box-shadow 0.3s;
+    }
+    header.scrolled {
+      box-shadow: 0 4px 24px rgba(27,42,74,0.08);
+    }
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #1B2A4A;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo i {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #C9A84C, #b8953e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav ul { display: flex; gap: 32px; align-items: center; }
+    nav a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #555;
+      transition: color 0.3s;
+      position: relative;
+    }
+    nav a:not(.btn)::after {
+      content: "";
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0;
+      height: 2px;
+      background: #C9A84C;
+      border-radius: 1px;
+      transition: width 0.3s;
+    }
+    nav a:not(.btn):hover { color: #1B2A4A; }
+    nav a:not(.btn):hover::after { width: 100%; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: #1B2A4A;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1920&q=80");
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.3);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(27,42,74,0.8) 0%, rgba(27,42,74,0.6) 50%, rgba(27,42,74,0.85) 100%);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding-top: 76px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.15);
+      backdrop-filter: blur(8px);
+      color: #C9A84C;
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 28px;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+    .hero-badge i { color: #C9A84C; }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      position: relative;
+      display: inline-block;
+    }
+    .hero h1 em::after {
+      content: "";
+      position: absolute;
+      bottom: 4px; left: -4px; right: -4px;
+      height: 12px;
+      background: rgba(201,168,76,0.45);
+      border-radius: 4px;
+      z-index: -1;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 44px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+      line-height: 2;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===== Benefits ===== */
+    .benefits { padding: 120px 28px; background: #F8F6F0; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .benefit-card {
+      text-align: center;
+      padding: 48px 32px 40px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid #e8e4dd;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.4s ease;
+    }
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(27,42,74,0.08),
+                  0 4px 12px rgba(0,0,0,0.03);
+    }
+    .benefit-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #f5f0e4 0%, #ede5d0 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #1B2A4A;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .benefit-card:hover .benefit-icon {
+      background: linear-gradient(135deg, #1B2A4A, #253a5f);
+      color: #C9A84C;
+      transform: scale(1.08);
+    }
+    .benefit-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1B2A4A;
+    }
+    .benefit-card p {
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    /* ===== Instructor ===== */
+    .instructor {
+      padding: 120px 28px;
+      background: #FFFFFF;
+    }
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+    }
+    .instructor-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 48px 40px;
+      box-shadow: 0 8px 40px rgba(27,42,74,0.05),
+                  0 1px 3px rgba(0,0,0,0.02);
+      border: 1px solid #e8e4dd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .instructor-photo {
+      flex-shrink: 0;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1B2A4A, #253a5f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: #C9A84C;
+      box-shadow: 0 8px 28px rgba(27,42,74,0.15);
+      border: 4px solid #1B2A4A;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .instructor-photo::after {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 60%);
+    }
+    .instructor-info {
+      width: 100%;
+    }
+    .instructor-info h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #1B2A4A;
+      letter-spacing: -0.5px;
+    }
+    .instructor-info .role {
+      color: #C9A84C;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    .instructor-info .role i { font-size: 0.75rem; }
+    .instructor-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .instructor-tags span {
+      background: #f5f0e4;
+      color: #8a7430;
+      padding: 5px 14px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid #e8dfc8;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .instructor-tags span i { font-size: 0.65rem; }
+    .instructor-body {
+      text-align: left;
+      border-top: 1px solid #eee;
+      padding-top: 24px;
+    }
+    .instructor-body p {
+      color: #666;
+      margin-bottom: 14px;
+      font-weight: 400;
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+    .instructor-body p:last-child { margin-bottom: 0; }
+    .russian-greeting {
+      font-family: "Noto Serif", Georgia, serif;
+      font-style: italic;
+      font-size: 1.4em;
+      color: #1B2A4A;
+      font-weight: 600;
+    }
+
+    /* ===== Pricing ===== */
+    .pricing { padding: 120px 28px; background: #F8F6F0; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      border-radius: 24px;
+      padding: 52px 40px 44px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.4s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px);
+    }
+    .pricing-card.trial {
+      background: #fff;
+      border: 1px solid #e8e4dd;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+    }
+    .pricing-card.trial:hover {
+      box-shadow: 0 16px 48px rgba(27,42,74,0.08);
+    }
+    .pricing-card.regular {
+      background: linear-gradient(145deg, #1B2A4A 0%, #152238 100%);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(27,42,74,0.3);
+    }
+    .pricing-card.regular:hover {
+      box-shadow: 0 20px 56px rgba(27,42,74,0.35);
+    }
+    .pricing-card .badge {
+      position: absolute;
+      top: -14px; left: 50%; transform: translateX(-50%);
+      padding: 5px 22px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .pricing-card.trial .badge {
+      background: #1B2A4A;
+      color: #fff;
+    }
+    .pricing-card.regular .badge {
+      background: #C9A84C;
+      color: #fff;
+    }
+    .pricing-card .plan-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .pricing-card.trial .plan-icon { color: #1B2A4A; }
+    .pricing-card.regular .plan-icon { color: #C9A84C; }
+    .pricing-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .pricing-card .plan-desc {
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+    .pricing-card.trial .plan-desc { color: #999; }
+    .pricing-card.regular .plan-desc { opacity: 0.7; }
+    .pricing-card .price {
+      font-size: 3rem;
+      font-weight: 900;
+      margin: 20px 0;
+      letter-spacing: -1px;
+    }
+    .pricing-card .price small {
+      font-size: 0.38em;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+    .pricing-card.trial .price { color: #1B2A4A; }
+    .pricing-card .features {
+      margin: 28px 0;
+      text-align: left;
+    }
+    .pricing-card .features li {
+      padding: 8px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 400;
+    }
+    .pricing-card .features li i {
+      font-size: 0.75rem;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .pricing-card.trial .features li i {
+      background: #f5f0e4;
+      color: #1B2A4A;
+    }
+    .pricing-card.regular .features li i {
+      background: rgba(201,168,76,0.2);
+      color: #C9A84C;
+    }
+    .pricing-card.regular .btn {
+      background: #C9A84C;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+    }
+    .pricing-card.regular .btn:hover {
+      background: #d4b55a;
+      box-shadow: 0 8px 28px rgba(201,168,76,0.4);
+    }
+
+    /* ===== Cancellation Policy ===== */
+    .cancellation {
+      padding: 120px 28px;
+      background: #FFFFFF;
+    }
+    .cancellation-card {
+      max-width: 740px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 44px 48px;
+      border-left: 4px solid #C9A84C;
+      box-shadow: 0 4px 24px rgba(27,42,74,0.04),
+                  0 1px 3px rgba(0,0,0,0.02);
+    }
+    .cancellation-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
+    }
+    .cancellation-intro i {
+      font-size: 1.4rem;
+      color: #C9A84C;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .cancellation-intro p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .cancellation-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 28px;
+    }
+    .cancellation-table thead th {
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      padding: 0 0 12px;
+      border-bottom: 2px solid #e8e4dd;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cancellation-table tbody td {
+      padding: 16px 0;
+      font-size: 0.92rem;
+      color: #444;
+      border-bottom: 1px solid #f0ede6;
+      vertical-align: middle;
+    }
+    .cancellation-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .policy-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .policy-badge.free {
+      background: #eef6ee;
+      color: #2e7d32;
+    }
+    .policy-badge.partial {
+      background: #fff8e1;
+      color: #f57f17;
+    }
+    .policy-badge.none {
+      background: #fce4ec;
+      color: #c62828;
+    }
+    .policy-section { margin-bottom: 8px; }
+    .policy-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .policy-heading i {
+      color: #C9A84C;
+      font-size: 0.95rem;
+    }
+    .policy-content.reschedule {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f0f7f0;
+      border-radius: 12px;
+      padding: 20px 24px;
+      border: 1px solid #d4ecd4;
+    }
+    .policy-content.reschedule > i {
+      color: #2e7d32;
+      font-size: 1.1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .policy-content.reschedule p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .policy-content.reschedule strong {
+      color: #2e7d32;
+    }
+    .policy-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #C9A84C 50%, transparent 100%);
+      margin: 28px 0;
+      opacity: 0.4;
+    }
+    .cancellation-note {
+      font-size: 0.85rem;
+      color: #999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      margin-top: 4px;
+    }
+    .cancellation-note i {
+      color: #C9A84C;
+      font-size: 0.9rem;
+    }
+
+    /* ===== FAQ ===== */
+    .faq {
+      padding: 120px 28px;
+      background: #F8F6F0;
+    }
+    .faq-list { max-width: 740px; margin: 0 auto; }
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      border: 1px solid #e8e4dd;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+    .faq-item:hover {
+      box-shadow: 0 4px 20px rgba(27,42,74,0.05);
+    }
+    .faq-item.active {
+      box-shadow: 0 8px 32px rgba(27,42,74,0.08);
+      border-color: #d4c99a;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 22px 28px;
+      background: none;
+      border: none;
+      font-size: 0.98rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: #1B2A4A;
+      font-family: "Noto Sans JP", sans-serif;
+      line-height: 1.6;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: #C9A84C; }
+    .faq-question i {
+      font-size: 0.85rem;
+      color: #C9A84C;
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f0e4;
+      border-radius: 50%;
+      transition: transform 0.3s, background 0.3s, color 0.3s;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(45deg);
+      background: #1B2A4A;
+      color: #C9A84C;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-answer p {
+      padding: 0 28px 24px;
+      color: #777;
+      font-size: 0.92rem;
+      line-height: 1.9;
+      font-weight: 400;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #1B2A4A;
+      color: #b0b8c8;
+      padding: 64px 28px 28px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .footer-brand { max-width: 320px; }
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #C9A84C;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .footer-logo i {
+      font-size: 1.3rem;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: #8090a8;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+    .footer-nav h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #C9A84C;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .footer-nav a {
+      display: block;
+      font-size: 0.88rem;
+      color: #8090a8;
+      padding: 4px 0;
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .footer-nav a:hover {
+      color: #C9A84C;
+      padding-left: 4px;
+    }
+    .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-social a {
+      width: 40px; height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      color: #8090a8;
+      font-size: 1rem;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+    }
+    .footer-social a:hover {
+      background: #C9A84C;
+      color: #1B2A4A;
+      transform: translateY(-2px);
+    }
+    .footer-copy {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #5a6a80;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+    }
+
+    /* ===== Scroll Animations ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 76px; left: 0; right: 0;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 28px;
+        gap: 8px;
+        box-shadow: 0 12px 32px rgba(27,42,74,0.08);
+        border-bottom: 1px solid #e8e4dd;
+      }
+      nav ul.open { display: flex; }
+      nav ul li { width: 100%; }
+      nav ul a { display: block; padding: 10px 0; }
+      .hero { min-height: 80vh; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .benefit-card { padding: 36px 24px 32px; }
+      .instructor-grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
+      .instructor-card { padding: 36px 28px; }
+      .instructor-photo { width: 140px; height: 140px; font-size: 3rem; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .cancellation-card { padding: 32px 24px; }
+      .cancellation-table thead th:first-child,
+      .cancellation-table tbody td:first-child { padding-right: 16px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+      .footer-brand { text-align: center; }
+      .footer-social { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.7rem; }
+      .hero { min-height: 70vh; }
+      .section-title { font-size: 1.5rem; }
+      .instructor-inner { padding: 32px 20px; }
+      .pricing-card { padding: 44px 28px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header id="header">
+    <div class="container">
+      <div class="logo">
+        <i class="fa-solid fa-language"></i>
+        トムのロシア語教室
+      </div>
+      <button class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="#benefits">メリット</a></li>
+          <li><a href="#instructor">講師紹介</a></li>
+          <li><a href="#pricing">料金プラン</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#pricing" class="btn btn-primary" style="padding:10px 28px;font-size:0.85rem;">体験予約</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> 体験レッスン受付中！</span>
+      <h1>ロシア語を<br><em>楽しく、わかりやすく</em></h1>
+      <p>初心者でも安心。日本語で丁寧にサポートするオンラインレッスン。<br>自宅からロシア語の世界を始めよう。</p>
+      <div class="hero-buttons">
+        <a href="#pricing" class="btn btn-primary"><i class="fa-solid fa-calendar-check" style="margin-right:8px"></i>体験レッスンを予約する</a>
+        <a href="#benefits" class="btn btn-outline">詳しく見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Benefits ===== -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <h2 class="section-title fade-up">このレッスンの<span>メリット</span></h2>
+      <p class="section-subtitle fade-up">トムのロシア語教室が選ばれる6つの理由</p>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon"><i class="fa-solid fa-user"></i></div>
+          <h3>完全マンツーマン</h3>
+          <p>あなたのペースに合わせたオーダーメイドレッスン。周りを気にせず集中できます。</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon"><i class="fa-solid fa-house-laptop"></i></div>
+          <h3>自宅から受講OK</h3>
+          <p>通学不要！パソコンやスマホがあれば、どこからでもレッスンに参加できます。</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>日本人がゼロから学んだからこそ</h3>
+          <p>日本人がつまずきやすいポイントを熟知。日本語の細かいニュアンスも理解した上で、わかりやすく丁寧に説明します。</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>オリジナル教材</h3>
+          <p>初心者〜上級者まで、レベルに合わせた独自の教材を無料で提供します。</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3>レッスン外でもサポート</h3>
+          <p>LINEやTelegramでいつでも質問OK。日常の中で浮かんだ疑問にも、24時間以内に丁寧にお答えします。</p>
+        </div>
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>カレンダーから即座に予約</h3>
+          <p>「何時から授業できますか？」といった面倒なやりとりは不要。カレンダーで空き時間を確認して、ワンクリックで予約完了です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Instructor ===== -->
+  <section class="instructor" id="instructor">
+    <div class="container">
+      <h2 class="section-title fade-up">講師<span>紹介</span></h2>
+      <p class="section-subtitle fade-up">あなたのロシア語学習をサポートします</p>
+      <div class="instructor-grid">
+        <!-- Tom -->
+        <div class="instructor-card fade-up">
+          <div class="instructor-photo"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <div class="instructor-info">
+            <h3>トム（Tom）</h3>
+            <span class="role"><i class="fa-solid fa-certificate"></i> ロシア語講師・日本語ネイティブ・上智大学ロシア語学科卒</span>
+            <div class="instructor-tags">
+              <span><i class="fa-solid fa-flag"></i> 日本人</span>
+              <span><i class="fa-solid fa-calendar"></i> 指導歴2年</span>
+            </div>
+            <div class="instructor-body">
+              <p><span class="russian-greeting" lang="ru">Привет!</span> こんにちは、トムです！</p>
+              <p>私は日本で生まれ育ち、大学からゼロでロシア語を学び始めました。最初は「キリル文字って何？」というレベルでしたが、今ではロシア人のパートナーと毎日ロシア語で会話しています！</p>
+              <p>ロシア語ができるようになると、楽しいことがたくさんあります。ロシア語圏の旅行で現地の人と話せたり、ロシア文学を原書で読めたり、ロシア料理店でメニューが読めたり、ロシアの音楽や映画がもっと楽しめたり。自分の見える世界が広がる感じ、すごく面白いです！</p>
+              <p>日本人として学んできたので、「ここが難しい」「ここでつまずく」というポイントがよくわかります。完全初心者の方もご安心ください。あなたのペースで、一緒に楽しく学んでいきましょう！まずは体験レッスンでお会いできるのを楽しみにしています&#x1F60A;</p>
+            </div>
+          </div>
+        </div>
+        <!-- Alina -->
+        <div class="instructor-card fade-up">
+          <div class="instructor-photo"><i class="fa-solid fa-user-graduate"></i></div>
+          <div class="instructor-info">
+            <h3>アリーナ（Alina）</h3>
+            <span class="role"><i class="fa-solid fa-certificate"></i> ロシア語講師・ロシア語ネイティブスピーカー</span>
+            <div class="instructor-tags">
+              <span><i class="fa-solid fa-flag"></i> ロシア人</span>
+              <span><i class="fa-solid fa-award"></i> 日本語JLPT N2</span>
+              <span><i class="fa-solid fa-location-dot"></i> 日本在住3年</span>
+            </div>
+            <div class="instructor-body">
+              <p><span class="russian-greeting" lang="ru">Здравствуйте!</span> はじめまして、アリーナです！</p>
+              <p>ロシア・ウラジオストク出身で、大学では日本文化を専攻し、現在日本に住んで3年目です。</p>
+              <p>「楽しいレッスン」をモットーに、生徒一人ひとりのペースや目標に寄り添ったレッスンを心がけています。皆さんとお会いするのは会話のレッスンになります。発音指導には自信があります！</p>
+              <p>ネイティブならではの自然なロシア語表現や、リアルな日常会話を一緒に楽しく学びましょう！皆さんとレッスンでお会いできるのを楽しみにしています&#x1F60A;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title fade-up">料金<span>プラン</span></h2>
+      <p class="section-subtitle fade-up">シンプルでわかりやすい料金体系</p>
+      <p class="fade-up" style="text-align:center;font-size:14px;color:#999;max-width:540px;margin:-36px auto 48px;line-height:1.9;"><i class="fa-solid fa-lock" style="margin-right:4px"></i>決済はStripeを採用。クレジットカードで予約と同時に30秒で完了。銀行振込不要で、安全・簡単にお申し込みいただけます。</p>
+      <div class="pricing-grid">
+        <div class="pricing-card trial fade-up">
+          <span class="badge">初回限定</span>
+          <i class="fa-solid fa-seedling plan-icon"></i>
+          <h3>体験レッスン</h3>
+          <p class="plan-desc">まずは気軽にお試しください</p>
+          <div class="price">¥2,000<small> / 30分</small></div>
+          <ul class="features">
+            <li><i class="fa-solid fa-check"></i>レベルチェック＋ミニレッスン</li>
+            <li><i class="fa-solid fa-check"></i>学習プランの相談</li>
+            <li><i class="fa-solid fa-check"></i>教材サンプル配布</li>
+            <li><i class="fa-solid fa-check"></i>入会の勧誘なし</li>
+          </ul>
+          <a href="https://cal.com/russian.lesson.tomson/30分-ロシア語体験レッスン" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;">体験を予約する</a>
+        </div>
+        <div class="pricing-card regular fade-up">
+          <span class="badge"><i class="fa-solid fa-star" style="margin-right:4px"></i>人気</span>
+          <i class="fa-solid fa-rocket plan-icon"></i>
+          <h3>通常レッスン</h3>
+          <p class="plan-desc">しっかり学びたい方に</p>
+          <div class="price">¥4,500<small> / 50分</small></div>
+          <ul class="features">
+            <li><i class="fa-solid fa-check"></i>マンツーマンレッスン</li>
+            <li><i class="fa-solid fa-check"></i>文法・会話・発音を総合的に学べる</li>
+            <li><i class="fa-solid fa-check"></i>レッスン録画OK</li>
+            <li><i class="fa-solid fa-check"></i>レッスン外でも質問し放題</li>
+            <li><i class="fa-solid fa-check"></i>オリジナル教材＋宿題の添削つき</li>
+          </ul>
+          <a href="https://cal.com/russian.lesson.tomson/50分-ロシア語レッスン" target="_blank" rel="noopener noreferrer" class="btn" style="width:100%;">申し込む</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Cancellation Policy ===== -->
+  <section class="cancellation" id="cancellation">
+    <div class="container">
+      <h2 class="section-title fade-up">キャンセル<span>ポリシー</span></h2>
+      <p class="section-subtitle fade-up">安心してご予約ください</p>
+      <div class="cancellation-card fade-up">
+        <div class="cancellation-intro">
+          <i class="fa-solid fa-shield-halved"></i>
+          <p>急な予定変更でも大丈夫。柔軟なルールをご用意していますので、気軽にご予約いただけます。</p>
+        </div>
+
+        <!-- 日時変更 -->
+        <div class="policy-section">
+          <h4 class="policy-heading"><i class="fa-solid fa-arrows-rotate"></i> 日時変更について</h4>
+          <div class="policy-content reschedule">
+            <i class="fa-solid fa-circle-check"></i>
+            <p>レッスン開始の<strong>24時間前まで</strong>であれば、<strong>何度でも無料</strong>で日時を変更できます。お気軽にご連絡ください。</p>
+          </div>
+        </div>
+
+        <div class="policy-divider"></div>
+
+        <!-- キャンセル・返金 -->
+        <div class="policy-section">
+          <h4 class="policy-heading"><i class="fa-solid fa-receipt"></i> キャンセル・返金について</h4>
+          <table class="cancellation-table">
+            <thead>
+              <tr>
+                <th>タイミング</th>
+                <th>返金額</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="fa-solid fa-clock" style="color:#C9A84C;margin-right:8px"></i>24時間前まで</td>
+                <td><span class="policy-badge free">全額返金</span></td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-hourglass-half" style="color:#C9A84C;margin-right:8px"></i>24時間以内</td>
+                <td><span class="policy-badge partial">50%返金</span></td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-xmark" style="color:#C9A84C;margin-right:8px"></i>無断欠席・開始後</td>
+                <td><span class="policy-badge none">返金不可</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="cancellation-note"><i class="fa-solid fa-credit-card"></i> 返金はクレジットカードへ5〜10営業日以内に処理されます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title fade-up">よくある<span>質問</span></h2>
+      <p class="section-subtitle fade-up">ご不明点はお気軽にお問い合わせください</p>
+      <div class="faq-list">
+        <div class="faq-item fade-up">
+          <button class="faq-question">ロシア語が全くの初心者でも大丈夫ですか？ <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-answer"><p>はい、もちろんです！生徒さんの約7割が初心者からスタートしています。アルファベットの読み方から丁寧にお教えしますので、安心してご受講ください。</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <button class="faq-question">レッスンにはどんなツールを使いますか？ <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-answer"><p>Google Meetを使用します。パソコン・スマートフォン・タブレットのいずれかとインターネット接続があればOKです。カメラとマイクは内蔵のもので十分です。</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <button class="faq-question">急な予定が入った場合はどうすればいいですか？ <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-answer"><p>24時間前までにご連絡いただければ、日時変更に無料で対応いたします。体調不良などやむを得ない場合もお気軽にご相談ください。</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <button class="faq-question">支払い方法は何がありますか？ <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-answer"><p>クレジットカード決済（Stripe）に対応しています。Stripeは世界中で使われている安全な決済サービスです。レッスンごとの都度払いなので、定期契約や解約の手続きは不要です。安心してお申し込みください。</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <button class="faq-question">まとめて購入する割引はありますか？ <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-answer"><p>現在は都度払いのみとなっております。将来的にはパッケージプランの導入を検討中です。お楽しみに！</p></div>
+        </div>
+        <div class="faq-item fade-up">
+          <button class="faq-question">レッスンの頻度はどのくらいがおすすめですか？ <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-answer"><p>週1〜2回がおすすめです。ただし、ご自身のペースに合わせて自由にスケジュールを組むことができます。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fa-solid fa-language"></i>
+            トムのロシア語教室
+          </div>
+          <p>初心者から上級者まで、楽しく学べるオンラインロシア語レッスン。あなたのロシア語の旅をサポートします。</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <h4>ナビゲーション</h4>
+          <a href="#benefits">メリット</a>
+          <a href="#instructor">講師紹介</a>
+          <a href="#pricing">料金プラン</a>
+          <a href="#faq">よくある質問</a>
+        </div>
+        <div class="footer-nav">
+          <h4>お問い合わせ</h4>
+          <a href="#"><i class="fa-solid fa-envelope" style="margin-right:6px"></i>info@tom-russian.com</a>
+          <a href="#"><i class="fa-brands fa-line" style="margin-right:6px"></i>LINE: @tom-russian</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 トムのロシア語教室. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Script ===== -->
+  <script>
+    // Header shadow on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelector('nav ul').classList.remove('open');
+      });
+    });
+
+    // Scroll fade-up animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
